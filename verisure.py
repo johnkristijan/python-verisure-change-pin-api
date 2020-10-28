@@ -44,8 +44,8 @@ h = {
 d = {
     '_csrf': csrf,
     'spring-security-redirect':'/no/start.html',
-    'j_username':'velforeningnhh@gmail.com',
-    'j_password':'Nedrehumlehaugen2014'
+    'j_username':'***',
+    'j_password':'***'
 }
 r2 = requests.post(url, data=d, headers=h)
 import pdb; pdb.set_trace
