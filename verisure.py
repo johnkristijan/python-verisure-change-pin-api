@@ -51,11 +51,11 @@ class Verisure:
 
     def _initiate_spring_security_check(self):
         hdrs = {
-            "Accept: application/json, text/javascript, */*; q=0.01",
-            "Accept-Encoding: gzip, deflate, br",
-            "Accept-Language: en,en-US;q=0.9,nb-NO;q=0.8,nb;q=0.7,no;q=0.6,nn;q=0.5,da;q=0.4,pt;q=0.3,sv;q=0.2,de;q=0.1",
-            "Connection: keep-alive",
-            "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
+            "Accept": "application/json, text/javascript, */*; q=0.01",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "en,en-US;q=0.9,nb-NO;q=0.8,nb;q=0.7,no;q=0.6,nn;q=0.5,da;q=0.4,pt;q=0.3,sv;q=0.2,de;q=0.1",
+            "Connection": "keep-alive",
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         }
         data = {
             '_csrf': csrf,
