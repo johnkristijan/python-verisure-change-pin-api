@@ -69,22 +69,27 @@ class Verisure:
             print(f"Fack - bad return code: code={req.status_code}, reason={req.reason}")
 
     def _login(self, username, vid):
-        url = 'https://m-api01.verisure.com/auth/login'
-        method = 'POST'
-        hdrs = {
-            "Accept": "application/json, text/plain, */*",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Accept-Language": "en,en-US;q=0.9,nb-NO;q=0.8,nb;q=0.7,no;q=0.6,nn;q=0.5,da;q=0.4,pt;q=0.3,sv;q=0.2,de;q=0.1",
-            "Connection": "keep-alive",
-            "Content-Length": "0",
-            "Cookie": f"username={username}; vid={vid}",
-            "Origin": "https://mypages.verisure.com",
-            "Referer": "https://mypages.verisure.com/no/status",
-            "Sec-Fetch-Mode": "cors",
-            "Sec-Fetch-Site": "same-site",
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
-            "cache-control": "no-cache"
-        }
+        try:
+            url = 'https://m-api01.verisure.com/auth/login'
+            hdrs = {
+                "Accept": "application/json, text/plain, */*",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Accept-Language": "en,en-US;q=0.9,nb-NO;q=0.8,nb;q=0.7,no;q=0.6,nn;q=0.5,da;q=0.4,pt;q=0.3,sv;q=0.2,de;q=0.1",
+                "Connection": "keep-alive",
+                "Content-Length": "0",
+                "Cookie": f"username={username}; vid={vid}",
+                "Origin": "https://mypages.verisure.com",
+                "Referer": "https://mypages.verisure.com/no/status",
+                "Sec-Fetch-Mode": "cors",
+                "Sec-Fetch-Site": "same-site",
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36",
+                "cache-control": "no-cache"
+            }
+            return requests.post(url, headers=hdrs)
+        except Exception as e:
+            print(f"Could not log in, due to {e}")
+            return False
+        
 
 
 if __name__ == "main":
