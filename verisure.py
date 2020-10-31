@@ -22,7 +22,7 @@ class Verisure:
         self._headers = req.headers
 
         self._csrf_token = self._get_csrf_token()
-        self._initiate_spring_security_check()
+        self._initiate_spring_security_check(csrf=self._csrf_token)
 
     def _get_csrf_token(self) -> str:
         if not self._lines:
@@ -49,7 +49,7 @@ class Verisure:
 
         return jsess
 
-    def _initiate_spring_security_check(self):
+    def _initiate_spring_security_check(self, csrf):
         hdrs = {
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "Accept-Encoding": "gzip, deflate, br",
