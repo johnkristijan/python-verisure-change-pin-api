@@ -28,7 +28,7 @@ class Verisure:
         if not self._lines:
             raise ValueError("Can't extract CSRF TOKEN - missing body data from login endpoint.")
         try:
-            csrf = [x for x in lines if 'X-CSRF-TOKEN' in x][0]
+            csrf = [x for x in self._lines if 'X-CSRF-TOKEN' in x][0]
             csrf = csrf.split(':')[-1]
             csrf = csrf.strip().replace("'", "")
         except IndexError as ie:
